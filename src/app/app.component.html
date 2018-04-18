@@ -18,6 +18,7 @@
       <p *ngIf="showContent">Secret password is NOT tuna!</p>
       <div class="actionsContainer list-group">
         <p
+          class="list-group-item"
           *ngFor="let action of buttonClicks; let i = index"
           [ngStyle]="{backgroundColor: getColor(i)}"
           [ngClass]="{markWhite: i >= 5}">{{ action }}</p>
