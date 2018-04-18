@@ -3,16 +3,24 @@
     <button class="btn btn-success">New Recipe</button>
   </div>
 </div>
+<hr>
 <div class="row">
   <div class="col-xs-12">
     <!-- This will be put into recipe item component soon for now it's hardcoded -->
-    <a *ngFor="let currRecipe of recipes" href="#" class="list-group-item clearfix">
+    <a
+      *ngFor="let currRecipe of recipes"
+      href="#"
+      class="list-group-item clearfix">
       <div class="pull-left">
         <h4 class="list-group-item-heading">{{ currRecipe.name }}</h4>
         <p class="list-group-item-text">{{ currRecipe.description }}</p>
       </div>
       <div class="pull-right">
-        <img class="img-responsive" alt="recipe image" src="{{ currRecipe.imagePath }}" style="max-height: 50px;">
+        <img
+          class="img-responsive"
+          alt="recipe image"
+          src="{{ currRecipe.imagePath }}"
+          style="max-height: 50px;">
       </div>
     </a>
   </div>
