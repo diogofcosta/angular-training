@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,25 +11,27 @@ export class DashboardComponent implements OnInit {
   @Output() serverCreated = new EventEmitter<{serverName: string, serverContent: string}>();
   // blueprintCreated event with data type that's specified
   @Output() blueprintCreated = new EventEmitter<{serverName: string, serverContent: string}>();
-  newServerName = '';
-  newServerContent = '';
+  // newServerName = '';
+  // newServerContent = '';
+
+  @ViewChild('serverContentInput') contentInput: ElementRef; // let's use this to "bind" or link to the html reference we have on the template
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  onAddServer() {
+  onAddServer(nameInput: HTMLInputElement) { // what we receive is actually the element reference.. not the value
     this.serverCreated.emit({
-      serverName: this.newServerName,
-      serverContent: this.newServerContent
+      serverName: nameInput.value, // html input elements have value... that we can get!
+      serverContent: this.contentInput.nativeElement.value // we didn't PASS the element when we called the method... we used the ViewChild to link it
     });
   }
 
-  onAddBlueprint() {
+  onAddBlueprint(nameInput: HTMLInputElement) {
     this.blueprintCreated.emit({
-      serverName: this.newServerName,
-      serverContent: this.newServerContent
+      serverName: nameInput.value, // html input elements have value... that we can get!
+      serverContent: this.contentInput.nativeElement.value // we didn't PASS the element when we called the method... we used the ViewChild to link it
     });
   }
 
