@@ -23,4 +23,9 @@ export class AppComponent {
       content:  blueprintData.serverContent
     });
   }
+
+  onChangeFirst() {
+    // will fail if we empty the array, this is just for testing
+    this.serverElements[0].name = 'changed the name!';
+  }
 }
