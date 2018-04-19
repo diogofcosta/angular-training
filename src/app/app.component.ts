@@ -28,4 +28,8 @@ export class AppComponent {
     // will fail if we empty the array, this is just for testing
     this.serverElements[0].name = 'changed the name!';
   }
+
+  onDestroyFirst() {
+    this.serverElements.splice(0, 1); // starting at index 0, removing only one element
+  }
 }

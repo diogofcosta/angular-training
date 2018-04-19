@@ -1,7 +1,9 @@
 <div
   class="panel panel-default">
   <!--<div class="panel-heading">{{ element.name }}</div>-->
-  <div class="panel-heading">{{ name }}</div> <!-- now we're gonna use the other property we defined -->
+  <div
+    class="panel-heading"
+    #headingRef>{{ name }}</div> <!-- now we're gonna use the other property we defined -->
   <div class="panel-body">
     <ng-content></ng-content>
   </div>
