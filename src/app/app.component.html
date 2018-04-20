@@ -6,10 +6,26 @@
         (click)="onlyOdd = !onlyOdd">Only show odd numbers</button>
       <br><br>
       <ul class="list-group">
-        <li
-          class="list-group-item">
-        </li>
+        <div *ngIf="onlyOdd">
+          <li
+            class="list-group-item"
+            *ngFor="let number of odds"
+            [ngClass]="{odd: number % 2 !== 0}"
+            [ngStyle]="{backgroundColor: 'blue'}">
+            {{ number }}
+          </li>
+        </div>
+        <div *ngIf="!onlyOdd">
+          <li
+            class="list-group-item"
+            *ngFor="let number of evens"
+            [ngClass]="{even: number % 2 === 0}"
+            [ngStyle]="{backgroundColor: 'black'}">
+            {{ number }}
+          </li>
+        </div>
       </ul>
+      <p appBasicHighlight>This is styled with green...</p>
       <ng-template [ngIf]="onlyOdd">
         <p>Only odd</p>
       </ng-template>
