@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-xs-12">
+    <button
+      type="button"
+      class="btn btn-success"
+      (click)="onStartGame()"
+      [disabled]="intervalSet">Start game</button>
+    <button
+      type="button"
+      class="btn btn-danger"
+      (click)="onStopGame()"
+      [disabled]="!intervalSet">Stop game</button>
+  </div>
+</div>
