@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Ingredient} from '../shared/ingredient.model';
 
 @Component({
@@ -7,6 +7,8 @@ import {Ingredient} from '../shared/ingredient.model';
   styleUrls: ['./shopping-list.component.css']
 })
 export class ShoppingListComponent implements OnInit {
+
+  selectedIngredient: Ingredient;
 
   ingredients: Ingredient[] = [
     new Ingredient('Egg', 5),
@@ -19,4 +21,15 @@ export class ShoppingListComponent implements OnInit {
   ngOnInit() {
   }
 
+  onAddedIngredient(ingredient: Ingredient) {
+    this.ingredients.push(ingredient);
+  }
+
+  onDeletedIngredient(ingredient: Ingredient) {
+    this.ingredients.splice(this.ingredients.indexOf(ingredient), 1);
+  }
+
+  onSelectedIngredient(currIngredient: Ingredient) {
+    this.selectedIngredient = currIngredient;
+  }
 }
