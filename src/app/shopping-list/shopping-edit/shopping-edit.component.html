@@ -7,14 +7,16 @@
           <input
             type="text"
             id="name"
-            class="form-control">
+            class="form-control"
+            #nameInput>
         </div>
         <div class="col-sm-2 form-group">
           <label for="quantity">Quantity</label>
           <input
             type="number"
             id="quantity"
-            class="form-control">
+            class="form-control"
+            #quantityInput>
         </div>
       </div>
       <div class="row">
@@ -23,16 +25,13 @@
             type="submit"
             class="btn btn-success"
             (click)="onAddIngredient()"
-            [disabled]="!validIngredientInfo()">Add</button>
+            >Add</button>
           <button
             type="button"
-            class="btn btn-danger"
-            (click)="onDeleteIngredient()"
-            [disabled]="!selectedIngredient">Delete</button>
+            class="btn btn-danger">Delete</button>
           <button
             type="button"
-            class="btn btn-primary"
-            (click)="onClearIngredient()">Clear</button>
+            class="btn btn-primary">Clear</button>
         </div>
       </div>
     </form>
