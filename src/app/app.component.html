@@ -15,7 +15,7 @@
             {{ number }}
           </li>
         </div>
-        <div *ngIf="!onlyOdd">
+        <div *appUnless="onlyOdd">
           <li
             class="list-group-item"
             *ngFor="let number of evens"
@@ -24,6 +24,26 @@
             {{ number }}
           </li>
         </div>
+        <!--<div *ngIf="!onlyOdd">-->
+          <!--<li-->
+            <!--class="list-group-item"-->
+            <!--*ngFor="let number of evens"-->
+            <!--[ngClass]="{even: number % 2 === 0}"-->
+            <!--[ngStyle]="{backgroundColor: 'black'}">-->
+            <!--{{ number }}-->
+          <!--</li>-->
+        <!--</div>-->
+        <!--<ng-template ngIf="!onlyOdd">-->
+          <!--<div>-->
+            <!--<li-->
+              <!--class="list-group-item"-->
+              <!--*ngFor="let number of evens"-->
+              <!--[ngClass]="{even: number % 2 === 0}"-->
+              <!--[ngStyle]="{backgroundColor: 'black'}">-->
+              <!--{{ number }}-->
+            <!--</li>-->
+          <!--</div>-->
+        <!--</ng-template>-->
       </ul>
       <p appBasicHighlight>This is styled with green...</p>
       <p appBetterHighlight [defaultColor]="'yellow'" [highlightColor]="'orange'">This is styled with red...</p>
