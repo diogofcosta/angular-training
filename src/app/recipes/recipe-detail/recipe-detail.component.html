@@ -38,7 +38,14 @@
     </div>
     <div class="row">
       <div class="col-xs-12">
-        TODO: Recipe ingredients
+        <ul class="list-group">
+          <li
+            class="list-group-item"
+            style="cursor: pointer"
+            *ngFor="let currIngredient of selectedRecipe.ingredients">
+            {{ currIngredient.name }} ({{ currIngredient.quantity }})
+          </li>
+        </ul>
       </div>
     </div>
   </div>
