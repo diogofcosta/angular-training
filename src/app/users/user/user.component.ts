@@ -16,11 +16,11 @@ export class UserComponent implements OnInit {
     console.log(this.currentRoute);
     this.user = {
       id: this.currentRoute.snapshot.params['id'],
-      name: 'stuff'
+      name: this.currentRoute.snapshot.params['name']
     };
     // subscribe to changes on params and react to it
     this.currentRoute.params.subscribe(
-      (newParams: Params) => { this.user.id = newParams.id; }
+      (newParams: Params) => { this.user.id = newParams.id; this.user.name = newParams.name; }
     );
   }
 

@@ -14,11 +14,38 @@ import { ServerComponent } from './servers/server/server.component';
 import { ServersService } from './servers/servers.service';
 
 const appRoutes: Routes = [
-  { path: '', component: HomeComponent }, // to catch the empty path case
-  { path: 'users', component: UsersComponent },
-  { path: 'users/:id', component: UserComponent }, // passing an argument to the route, after the : its dynamic
-  { path: 'servers', component: ServersComponent },
-  { path: 'servers/:id/edit', component: EditServerComponent }
+  {
+    path: '', // to catch the empty path case
+    component: HomeComponent
+  },
+  {
+    path: 'users',
+    component: UsersComponent,
+    children: [
+      {
+        path: ':id/:name', // passing an argument to the route, after the : its dynamic
+        component: UserComponent
+      }
+    ]
+  },
+  {
+    path: 'servers',
+    component: ServersComponent,
+    children: [
+      {
+        path: ':id/edit',
+        component: EditServerComponent
+      },
+      {
+        path: ':id',
+        component: ServerComponent
+      }
+    ]
+  },
+  {
+    path: '*',
+    component: HomeComponent
+  }
 ];
 
 @NgModule({
