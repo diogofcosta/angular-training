@@ -16,8 +16,9 @@ import { ServersService } from './servers/servers.service';
 const appRoutes: Routes = [
   { path: '', component: HomeComponent }, // to catch the empty path case
   { path: 'users', component: UsersComponent },
+  { path: 'users/:id', component: UserComponent }, // passing an argument to the route, after the : its dynamic
   { path: 'servers', component: ServersComponent },
-  { path: 'home', component: HomeComponent }
+  { path: 'servers/:id/edit', component: EditServerComponent }
 ];
 
 @NgModule({
